@@ -1,3 +1,39 @@
+---
+import Project from "../components/Project.astro";
+import Sidebar from "../components/Sidebar.astro";
+import {ViewTransitions} from 'astro:transitions';
+const projects = [
+  {
+    title: "CodeCraft",
+    desc: [
+      "Developed a large-scale e-commerce platform for indie game developers",
+      "Designed and implemented UI, backend, and database architecture",
+      "Contributed to RESTful API and GraphQL design",
+      "Led a team of three engineers for several months"
+    ],
+    tech: ["React", "Next.js", "Node.js", "MongoDB", "Heroku"]
+  },
+  {
+    title: "CloudMason",
+    desc: [
+      "Contributed to microservices architecture design for email distribution system",
+      "Created a backend infrastructure with queues and an event bus",
+      "Designed to handle a high volume ~3 million emails per day"
+    ],
+    tech: ["Node.js", "RabbitMQ", "Docker", "Kubernetes"]
+  },
+  {
+    title: "Sarah (HealthEase.io)",
+    desc: [
+      "Contributed to Israel's largest telehealth platform for doctors and patients",
+      "Developed appointment and billing systems",
+      "Resolved live production bugs and server issues"
+    ],
+    tech: ["React", "Node.js", "Express.js", "MySQL", "AWS"]
+  }
+];
+---
+
 <!DOCTYPE html>
 <html
   class="w-mod-js wf-ibmplexsans-n4-active wf-ibmplexsans-n5-active wf-ibmplexmono-n4-active wf-ibmplexsans-n3-active wf-ibmplexsans-n6-active wf-ibmplexmono-n6-active wf-ibmplexmono-n2-active wf-active"
@@ -10,6 +46,7 @@
       }
     </style>
     <title>Sam Bernstein | Software Development</title>
+    <ViewTransitions />
     <meta content="Software Development" property="og:title" />
     <meta content="Software Development" property="twitter:title" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -35,47 +72,7 @@
   </head>
   <body>
     <div class="content">
-      <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="sidebar w-nav">
-        <div class="nav-content">
-          <a href="/" class="w-nav-brand"
-            ><div class="niv-data">
-              <img src="/assets/6429cd3862519374fd5d7e2b_niv.jpeg" loading="eager" sizes="48px" srcset="/assets/sam-500.jpg 500w, /assets/sam-500.jpg 607w" alt="" class="niv-image" />
-              <div>
-                <div class="label-white">Sam Bernstein</div>
-                <div class="label-gray">Software Engineer</div>
-              </div>
-            </div></a
-          >
-          <nav role="navigation" class="w-nav-menu">
-            <a href="/" class="nav-link-container w-inline-block"
-              ><img src="/assets/642f186133cd3147a0f8542e_home_FILL0_wght0_GRAD0_opszNaN.svg" loading="eager" alt="" class="nav-link-image" />
-              <div>Home</div></a
-            ><a href="/software-development" aria-current="page" class="nav-link-container w-inline-block w--current"
-              ><img src="/assets/642f1861a60d17b0ba9b5cbe_deployed_code_FILL0_wght0_GRAD0_opszNaN.svg" loading="eager" alt="" class="nav-link-image" />
-              <div>Software development</div></a
-            ><a href="/devops" class="nav-link-container w-inline-block"
-              ><img src="/assets/642f1862e345585434db2798_dns_FILL0_wght0_GRAD0_opszNaN.svg" loading="eager" alt="" class="nav-link-image" />
-              <div>DevOps</div></a
-            ><a href="/personal-projects" class="nav-link-container w-inline-block"
-              ><img src="/assets/favorite_FILL0_wght0_GRAD0_opszNaN.svg" loading="eager" alt="" class="nav-link-image" />
-              <div>Personal projects</div></a
-            >
-          </nav>
-          <div
-            class="navbar-icon-button w-nav-button"
-            style="-webkit-user-select: text;"
-            aria-label="menu"
-            role="button"
-            tabindex="0"
-            aria-controls="w-nav-overlay-0"
-            aria-haspopup="menu"
-            aria-expanded="false"
-          >
-            <img src="/assets/menu_FILL0_wght300_GRAD0_opsz40.svg" loading="eager" alt="" class="navbar-icon" />
-          </div>
-        </div>
-        <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
-      </div>
+        <Sidebar selectedItem="software-development" />
       <nav class="main">
         <div class="container">
           <div class="back-nav-container">
@@ -86,66 +83,16 @@
           </div>
           <div class="content-container">
             <h1>Software Development</h1>
-            <section id="software-development" class="items-container">
-              <div class="resouce-items">
-                <!-- CodeCraft Project -->
-                <div class="single-item">
-                  <h3>CodeCraft</h3>
-                  <div class="project-desc project-desc-list w-richtext">
-                    <ul role="list">
-                      <li>Developed a large-scale e-commerce platform for indie game developers</li>
-                      <li>Designed and implemented UI, backend, and database architecture</li>
-                      <li>Contributed to RESTful API and GraphQL design</li>
-                      <li>Led a team of three engineers for several months</li>
-                    </ul>
+            <section class="items-container">
+                <div class="resouce-items">
+                    {projects.map(project => (
+                      <Project 
+                        title={project.title} 
+                        desc={project.desc}
+                        tech={project.tech}
+                      />
+                    ))}
                   </div>
-                  <div class="mini-label-white">Technologies &amp; tools</div>
-                  <div class="chips-container">
-                    <div class="single-chip">React</div>
-                    <div class="single-chip">Next.js</div>
-                    <div class="single-chip">Node.js</div>
-                    <div class="single-chip">MongoDB</div>
-                    <div class="single-chip">Heroku</div>
-                  </div>
-                </div>
-                <!-- CloudMason Project -->
-                <div class="single-item">
-                  <h3>CloudMason</h3>
-                  <div class="project-desc project-desc-list w-richtext">
-                    <ul role="list">
-                      <li>Contributed to microservices architecture design for email distribution system</li>
-                      <li>Created a backend infrastructure with queues and an event bus</li>
-                      <li>Designed to handle a high volume ~3 million emails per day</li>
-                    </ul>
-                  </div>
-                  <div class="mini-label-white">Technologies &amp; tools</div>
-                  <div class="chips-container">
-                    <div class="single-chip">Node.js</div>
-                    <div class="single-chip">RabbitMQ</div>
-                    <div class="single-chip">Docker</div>
-                    <div class="single-chip">Kubernetes</div>
-                  </div>
-                </div>
-                <!-- Sarah (HealthEase.io) Project -->
-                <div class="single-item">
-                  <h3>Sarah (HealthEase.io)</h3>
-                  <div class="project-desc project-desc-list w-richtext">
-                    <ul role="list">
-                      <li>Contributed to Israel's largest telehealth platform for doctors and patients</li>
-                      <li>Developed appointment and billing systems</li>
-                      <li>Resolved live production bugs and server issues</li>
-                    </ul>
-                  </div>
-                  <div class="mini-label-white">Technologies &amp; tools</div>
-                  <div class="chips-container">
-                    <div class="single-chip">React</div>
-                    <div class="single-chip">Node.js</div>
-                    <div class="single-chip">Express.js</div>
-                    <div class="single-chip">MySQL</div>
-                    <div class="single-chip">AWS</div>
-                  </div>
-                </div>
-              </div>
             </section>
           </div>
         </div>
