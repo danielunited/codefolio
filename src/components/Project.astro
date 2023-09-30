@@ -1,0 +1,11 @@
+<div class="single-item">
+  <h3>{props.title}</h3>
+  <div class="project-desc project-desc-list w-richtext">
+    <ul role="list">
+      {props.description.map((desc) => (
+        <li>{desc}</li>
+      ))}
+    </ul>
+  </div>
+  <!-- more project-specific content -->
+</div>

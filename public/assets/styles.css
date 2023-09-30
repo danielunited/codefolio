@@ -2317,7 +2317,8 @@ p {
 .main {
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(28, 28, 28, 0.64), rgba(28, 28, 28, 0.64)), url("/assets/grid-top-right.svg"), linear-gradient(rgba(28, 28, 28, 0.24), rgba(28, 28, 28, 0.24));
+  background-image: linear-gradient(rgba(28, 28, 28, 0.64), rgba(28, 28, 28, 0.64)), url("https://uploads-ssl.webflow.com/6429cb148fbcbe48ccddba47/6439908d1cacf75c4f143353_grid-top-right.svg"),
+    linear-gradient(rgba(28, 28, 28, 0.24), rgba(28, 28, 28, 0.24));
   background-position: 0 0, 0 0, 0 0;
   background-size: auto, auto 1130px, auto;
   flex-direction: column;
