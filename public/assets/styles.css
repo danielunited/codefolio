@@ -170,6 +170,14 @@ ul {
   position: relative;
 }
 
+.w-nav-menu.is-open {
+  display: block !important;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 92px;
+}
+
 .w-nav-button {
   float: right;
   cursor: pointer;
