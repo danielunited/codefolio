@@ -4,9 +4,18 @@ export function setupNav() {
 
   if (!navButton || !navMenu) return;
 
-  const toggleNav = () => navMenu.classList.toggle('is-open');
-  navButton.addEventListener('click', toggleNav);
+  const toggleNav = () => {
+    const isOpen = navMenu.classList.contains('is-open');
 
-  // Cleanup function to prevent memory leaks
+    navMenu.classList.toggle('is-visible', !isOpen);
+    setTimeout(
+      () => {
+        navMenu.classList.toggle('is-open', !isOpen);
+      },
+      isOpen ? 300 : 10
+    );
+  };
+
+  navButton.addEventListener('click', toggleNav);
   return () => navButton.removeEventListener('click', toggleNav);
 }

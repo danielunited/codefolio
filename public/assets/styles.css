@@ -201,6 +201,24 @@ ul {
     display: none;
   }
 
+  .w-nav[data-collapse='medium'] .w-nav-menu.is-visible {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 92px;
+    background: white;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: transform 250ms ease, opacity 250ms ease;
+    will-change: transform, opacity;
+  }
+
+  .w-nav[data-collapse='medium'] .w-nav-menu.is-visible.is-open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
   .w-nav[data-collapse='medium'] .w-nav-button {
     display: block;
   }
