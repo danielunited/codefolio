@@ -9,7 +9,9 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "dependencies": {
-    "astro": "^5.1.5"
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "astro": "^5.14.0",
+    "typescript": "^5.9.2"
   }
 }
