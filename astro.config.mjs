@@ -4,14 +4,14 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
-  
+
 export default defineConfig({
-  site: 'https://devandresm.github.io',
+  site: 'https://devandresm.github.io/',
   integrations: [
-  mdx(),
-  sitemap(),
-  tailwind({
-    applyBaseStyles: false
-          })
-    ]
+    mdx(),
+    sitemap(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
 });
