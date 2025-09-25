@@ -1,17 +1,6 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
-
-// https://astro.build/config
+import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://devandresm.github.io/',
-  integrations: [
-    mdx(),
-    sitemap(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-  ],
-});
+  site: 'https://astronaut.github.io',
+  base: 'mi-repo',
+})
